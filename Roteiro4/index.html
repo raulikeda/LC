@@ -762,6 +762,7 @@
 <p>Em cada nó, haverá um atributo <code>value</code> que guardará o valor correspondente do nó. Por exemplo, um nó BinOp irá armazenar o operador no value, podendo representar <code>+</code>, <code>-</code>, <code>*</code> ou <code>/</code>.</p>
 <p>Por ser uma estrutura em árvore, os nós podem ter filhos, que também serão outros nós. Para guardar essa estrutura, haverá um atributo chamado <code>children</code>, formado por uma lista de nós. Note o número de filhos é variável e depende de cada nó (A árvore NÃO é binária).</p>
 <p>Por fim, haverá um método <code>evaluate()</code> que será onde a etapa semântica acontecerá de fato. Cada nó possuirá a sua própria implementação do método.</p>
+<p>Todo erro disparado em alguma classe herdeira de <code>Node</code> precisa ter o prefixo: <code>[Semantic]</code>.</p>
 <div class="admonition atenção">
 <p class="admonition-title">MUITA ATENÇÃO!!!</p>
 <p><strong>Regra de Ouro</strong>: cada nó cuida apenas da sua vida, não precisa olhar ou interferir nos valores de sucessores ou antecessores. Também não precisa realizar ou antecipar alguma operação na qual não foi designada. Não tentem adivinhar nada!</p>
