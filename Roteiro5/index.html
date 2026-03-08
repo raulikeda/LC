@@ -881,7 +881,7 @@
 <h3 id="leitura-do-arquivo">Leitura do arquivo</h3>
 <p>Vamos substituir a entrada de código direto em <code>argv</code> pelo nome de um arquivo em formato texto.</p>
 <p>Agora a entrada esperada é:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>main.py<span class="w"> </span>teste.c
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>main.py<span class="w"> </span>teste.lua
 </code></pre></div>
 <p>Portanto, você deve abrir e ler o código no nome do arquivo de entrada antes de realizar a compilação.</p>
 <h3 id="comentarios">Comentários</h3>
@@ -891,11 +891,11 @@
 <p>O método <code>filter()</code> deve ser chamado ANTES de criar o objeto <code>Lexer</code>, de preferência na <code>main()</code>.</p>
 <p>Dica: opte por usar <code>regex</code> para a filtragem.</p>
 <p>Antes:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Este é um comentário</span>
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="nv">Este</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="nv">um</span><span class="w"> </span><span class="nv">comentário</span>
+<span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 <p>Depois:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition atenção">
 <p class="admonition-title">ATENÇÃO</p>
