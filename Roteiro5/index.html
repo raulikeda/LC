@@ -877,6 +877,13 @@
 <li>Implementar Comentários.</li>
 </ol>
 <h2 id="requisitos-do-roteiro">Requisitos do Roteiro</h2>
+<p>A meta do Roteiro é conseguir interpretar o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Comentário!</span>
+<span class="nv">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="nv">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="nv">z_final</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">y2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">z_final</span><span class="p">)</span>
+</code></pre></div>
 <p>Esse roteiro será dividido em pequenas tarefas, cada uma implementando uma nova funcionalidade no compilador.</p>
 <h3 id="leitura-do-arquivo">Leitura do arquivo</h3>
 <p>Vamos substituir a entrada de código direto em <code>argv</code> pelo nome de um arquivo em formato texto.</p>
@@ -887,7 +894,7 @@
 <h3 id="comentarios">Comentários</h3>
 <p>Os comentários serão tratados na etapa de Pré-processamento que ocorre antes mesmo da etapa léxica (<code>Lexer</code>). </p>
 <p>Vamos criar uma classe <code>Prepro</code> com apenas o método <code>filter()</code>. Esse método irá receber o código recém lido do arquivo e irá retornar o código limpo com os comentários removidos.</p>
-<p>Por enquanto serão tratados apenas os comentários <em>inline</em>. Portanto, o filter deve remover todo o texto entre: "//" e "\n". Contudo, não se esquecer de manter o avanço de linha.</p>
+<p>Por enquanto serão tratados apenas os comentários <em>inline</em>. Portanto, o filter deve remover todo o texto entre: "--" e "\n". Contudo, não se esquecer de manter o avanço de linha.</p>
 <p>O método <code>filter()</code> deve ser chamado ANTES de criar o objeto <code>Lexer</code>, de preferência na <code>main()</code>.</p>
 <p>Dica: opte por usar <code>regex</code> para a filtragem.</p>
 <p>Antes:</p>
@@ -915,7 +922,7 @@
 <p>Alguns novos símbolos serão incorporados ao alfabeto e precisam ser tratados no <code>Lexer</code>. Segue a lista:</p>
 <ul>
 <li>"=" (<code>ASSIGN</code>)</li>
-<li>";" (<code>END</code>)</li>
+<li>"\n" (<code>END</code>)</li>
 <li><code>Identifier</code>: será tratado de forma análoga aos números. Se você achar alguma letra (maiúscula ou minúscula), irá iterar até deixar de ser uma letra, número ou "_" (<em>underscore</em>). A <em>string</em> concatenada será declarada como <code>Token</code> do tipo <code>IDEN</code>.</li>
 </ul>
 <p>Exemplos de variáveis válidas:</p>
@@ -990,11 +997,11 @@
 <p class="admonition-title">Question</p>
 <p>Implementar constantes e variáveis imutáveis no compilador. Constantes são resolvidos durante o Preprocessamento com substituição direta (logo o símbolo que representa a constante deixará de existir antes da etapa léxica). Variáveis imutáveis funcionam iguais às variáveis tradicionais, porém não podem ter o seu valor alterado durante a execução (isso implica que deve haver a inicialização durante a declaração).</p>
 <p>Segue um exemplo abaixo:
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cp">#define N 1      </span><span class="c1">// Constant N</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Immutable variable x</span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="n">N</span><span class="p">);</span><span class="w">       </span><span class="c1">// This is actually: printf(1);</span>
-<span class="w">  </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">           </span><span class="c1">// Error: this is 1 = 1 (invalid)</span>
-<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">           </span><span class="c1">// Error: cannot change the value of x</span>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">      </span><span class="c1">-- Constant N</span>
+<span class="nv">imut</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">        </span><span class="c1">-- Immutable variable x</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="w">      </span><span class="c1">-- This is actually: print(1)</span>
+<span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">            </span><span class="c1">-- Parser Error: this is 1 = 1 [invalid]</span>
+<span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">            </span><span class="c1">-- Semantic Error: cannot change the value of x</span>
 </code></pre></div></p>
 </div>
 <h2 id="exercicios-adicionais">Exercícios Adicionais</h2>
