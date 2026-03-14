@@ -898,11 +898,11 @@
 <p>O método <code>filter()</code> deve ser chamado ANTES de criar o objeto <code>Lexer</code>, de preferência na <code>main()</code>.</p>
 <p>Dica: opte por usar <code>regex</code> para a filtragem.</p>
 <p>Antes:</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="nv">Este</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="nv">um</span><span class="w"> </span><span class="nv">comentário</span>
-<span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Este é um comentário</span>
+<span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
 <p>Depois:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
 <div class="admonition atenção">
 <p class="admonition-title">ATENÇÃO</p>
@@ -923,6 +923,7 @@
 <ul>
 <li>"=" (<code>ASSIGN</code>)</li>
 <li>"\n" (<code>END</code>)</li>
+<li>"print" (<code>PRINT</code>)</li>
 <li><code>Identifier</code>: será tratado de forma análoga aos números. Se você achar alguma letra (maiúscula ou minúscula), irá iterar até deixar de ser uma letra, número ou "_" (<em>underscore</em>). A <em>string</em> concatenada será declarada como <code>Token</code> do tipo <code>IDEN</code>.</li>
 </ul>
 <p>Exemplos de variáveis válidas:</p>
