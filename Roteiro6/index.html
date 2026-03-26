@@ -868,6 +868,19 @@
 <li>Implementar condicinais e laços</li>
 <li>Implementar leitura do terminal.</li>
 </ol>
+<p>Ao final do roteiro, queremos conseguir interpretar:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="kr">end</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">i</span>
+<span class="w">        </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div>
 <h2 id="requisitos-do-roteiro">Requisitos do Roteiro</h2>
 <p>Conforme explicado em aula, o novo Diagrama Sintático será:</p>
 <p><img alt="center|white" src="../images/H6-ds-full.png" /></p>
@@ -879,9 +892,9 @@
 <h3 id="lexer">Lexer</h3>
 <p>Adicionar os novos símbolos que representam as operações binárias e unária:</p>
 <ul>
-<li>&amp;&amp; - token <code>AND</code></li>
-<li>|| - token <code>OR</code></li>
-<li>!  - token <code>NOT</code></li>
+<li>and - token <code>AND</code></li>
+<li>or - token <code>OR</code></li>
+<li>not  - token <code>NOT</code></li>
 </ul>
 <p>E os operadores relacionais:</p>
 <ul>
@@ -894,12 +907,12 @@
 <li>if - token <code>IF</code></li>
 <li>while - token <code>WHILE</code></li>
 <li>else - token <code>ELSE</code></li>
-<li>scanf - token <code>READ</code></li>
+<li>read - token <code>READ</code></li>
 </ul>
 <p>Outros novos símbolos:</p>
 <ul>
-<li>{ - token <code>OPEN_BRA</code></li>
-<li>} - token <code>CLOSE_BRA</code></li>
+<li>do - token <code>OPEN_BRA</code></li>
+<li>end - token <code>CLOSE_BRA</code></li>
 </ul>
 <h3 id="ast">AST</h3>
 <p>Os operadores binários e unário utilizarão a estrutura já presentes nos nós <code>BinOp</code> e <code>UnOp</code> respectivamente.</p>
@@ -932,11 +945,11 @@
 <p class="admonition-title">Question</p>
 <p>Implementar a operação ternária condicional (conhecido como <em>if expression</em>). Esse operador tem a menor precedência possível, ou seja, mais baixo do que o <code>OR</code>. Implementar também a estrutura for.</p>
 <p>Segue um exemplo abaixo:
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1">// if x &gt; 2 then 5 else 3</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">   </span><span class="c1">// Prints from 0 to n-1</span>
-<span class="w">  </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">e</span>
+<span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="kr">then</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="kr">else</span><span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="kr">end</span><span class="w"> </span><span class="c1">-- if x &gt; 2 then 5 else 3</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="c1">-- n included</span>
+<span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span>
+<span class="kr">end</span>
 </code></pre></div></p>
 </div>
 <h2 id="exercicios-adicionais">Exercícios Adicionais</h2>
