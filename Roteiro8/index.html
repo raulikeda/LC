@@ -903,16 +903,16 @@
 <li>Geração de Código</li>
 </ol>
 <h2 id="exemplo-de-codigo">Exemplo de Código:</h2>
-<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="p">;</span>
-<span class="nv">int</span><span class="w"> </span><span class="nv">n</span><span class="p">;</span>
-<span class="nv">int</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scanf</span><span class="p">();</span>
-<span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">i</span><span class="p">;</span>
-<span class="w">  </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nf">printf</span><span class="p">(</span><span class="nv">f</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">inumber</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">nnumber</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">fnumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span>
+<span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">i</span>
+<span class="w">  </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="kr">end</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">f</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="mesmo-exemplo-em-assembly-nasm-gerado-pelo-compilador">Mesmo exemplo em Assembly NASM (gerado pelo compilador):</h2>
 <div class="highlight"><pre><span></span><code><span class="nf">section</span><span class="w"> </span><span class="no">.data</span>
