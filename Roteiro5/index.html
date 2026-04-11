@@ -1170,7 +1170,7 @@ LETTER = a | b | ... | z | A | B | ... | Z ;
 <p class="admonition-title">Question</p>
 <p>Implementar constantes e variáveis imutáveis no compilador. Constantes são resolvidos durante o Preprocessamento com substituição direta (logo o símbolo que representa a constante deixará de existir antes da etapa léxica). Variáveis imutáveis funcionam iguais às variáveis tradicionais, porém não podem ter o seu valor alterado durante a execução (isso implica que deve haver a inicialização durante a declaração).</p>
 <p>Segue um exemplo abaixo:
-<div class="highlight"><pre><span></span><code><span class="nv">const</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">      </span><span class="c1">-- Constant N</span>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="mi">1</span><span class="w">      </span><span class="c1">-- Constant N</span>
 <span class="nv">imut</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">        </span><span class="c1">-- Immutable variable x</span>
 <span class="nb">print</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="w">      </span><span class="c1">-- This is actually: print(1)</span>
 <span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">            </span><span class="c1">-- Parser Error: this is 1 = 1 [invalid]</span>

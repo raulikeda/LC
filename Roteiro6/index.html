@@ -898,7 +898,7 @@
 <span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
 <span class="w">    </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w"> </span><span class="kr">else</span><span class="w"> </span>
-<span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w">  </span><span class="ow">or</span><span class="w">  </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">        </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">i</span>
 <span class="w">        </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="kr">end</span>
@@ -929,9 +929,9 @@
 <h3 id="lexer">Lexer</h3>
 <p>Adicionar os novos símbolos que representam as operações binárias e unária:</p>
 <ul>
-<li>and - token <code>AND</code></li>
-<li>or - token <code>OR</code></li>
-<li>not  - token <code>NOT</code></li>
+<li>and  - token <code>AND</code></li>
+<li>or  - token <code>OR</code></li>
+<li>not   - token <code>NOT</code></li>
 </ul>
 <p>E os operadores relacionais:</p>
 <ul>
