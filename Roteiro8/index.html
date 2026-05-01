@@ -1006,7 +1006,7 @@ $ gcc -m32 -no-pie -nostartfiles -o program.exe program.obj -e _start
 <h2 id="extra-credit-pontos-06">Extra Credit - pontos: +0,6</h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Implementar a geração de código Assembly de funções (v2.3). Assim como esse roteiro, desconsiderar <em>strings</em>. </p>
+<p>Implementar a geração de código Assembly de funções (v2.3). Assim como esse roteiro, desconsiderar <em>strings</em>. Essa tarefa fica mais simples após finalizar a versão v2.3.</p>
 <p>Uma função é basicamente um procedimento (bloco de coódigo) em Assembly. Ao iniciar a função, deve-se zerar o <code>EBP</code> e o <code>ESP</code>. Antes de retornar, deve-se reestabelecer esses registradores. </p>
 <p>Os argumentos da função serão passados na pilha. Para acessar os argumentos, usa-se o endereço <code>[EBP+N]</code> (lembre-se que o EBP foi zerado). Atenção: <code>[EBP+4]</code> é o endereço de retorno da função e muito cuidado com a ordem de empilhamento e leitura dos argumentos (é uma pilha).</p>
 </div>
