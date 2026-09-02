@@ -880,6 +880,14 @@
 
 <h1 id="roteiro-2-functional-v10">Roteiro 2 (Functional) - <strong>v1.0</strong></h1>
 <h2 id="entrega-26aug2026-as-14h00">Entrega: 26/Aug/2026 às 14h00</h2>
+<div class="slide-frame">
+  <iframe
+    id="marp-slide"
+    src="../../slides/LC/LC-Aula04.html"
+    allowfullscreen>
+  </iframe>
+</div>
+
 <h2 id="objetivos">Objetivos</h2>
 <ol>
 <li>Reestruturar o compilador para o modelo visto em aula.</li>
@@ -965,11 +973,11 @@
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Linguagens Funcionais</p>
-<p>Em linguagens funcionais deve-se ir além e criar um <em>Generic</em> que irá nortear todo o desenvolvimento das funções de parsing. Isso pode ser feito também em Python, mas não traz nenhuma vantagem significativa no momento. Segue um exemplo em Haskell:</p>
+<p>Em linguagens funcionais deve-se ir além e criar um <em>Generic</em> que irá nortear todo o desenvolvimento das funções de parsing. Isso pode ser feito também em Python, mas não traz nenhuma vantagem significativa no momento. Segue um exemplo em Haskell:
 <div class="highlight"><pre><span></span><code><span class="c1">-- Generic Type: Parser recebe um tipo a e aplica sobre a construção</span>
 <span class="kr">type</span><span class="w"> </span><span class="kt">Parser</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ParserState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">ParserState</span><span class="p">)</span>
 <span class="c1">-- Exemplo: Parser int == ParserState -&gt; (int, ParserState)</span>
-</code></pre></div>
+</code></pre></div></p>
 </div>
 <p>E todas as funções da análise sintática seguirão essa construção. As funções receberão um <code>Token</code> e um <code>Lexer</code> e devolverão um resultado inteiro, seguido do <code>Lexer</code> atualizado e o próximo <code>Token</code> já selecionado. As funções seguirão o padrão exibido no Diagrama Sintático:</p>
 <p><img alt="center|white" src="../../images/H2-ds-full.png" /></p>
